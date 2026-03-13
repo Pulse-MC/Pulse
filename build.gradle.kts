@@ -76,7 +76,7 @@ subprojects {
 
     extensions.configure<PublishingExtension> {
         repositories {
-            maven("http://144.76.220.86:20398/snapshots") {
+            maven("https://maven.pulsemc.dev/snapshots") {
                 name = "pulse"
 
                 isAllowInsecureProtocol = true
