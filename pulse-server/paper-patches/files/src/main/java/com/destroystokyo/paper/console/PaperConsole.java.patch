@@ -1,0 +1,19 @@
+--- a/src/main/java/com/destroystokyo/paper/console/PaperConsole.java
++++ b/src/main/java/com/destroystokyo/paper/console/PaperConsole.java
+@@ -8,6 +_,7 @@
+ import org.bukkit.craftbukkit.command.ConsoleCommandCompleter;
+ import org.jline.reader.LineReader;
+ import org.jline.reader.LineReaderBuilder;
++// PULSE_MODIFIED
+ 
+ public final class PaperConsole extends SimpleTerminalConsole {
+ 
+@@ -20,7 +_,7 @@
+     @Override
+     protected LineReader buildReader(LineReaderBuilder builder) {
+         builder
+-                .appName("Purpur") // Purpur - Rebrand
++                .appName("Pulse") // Purpur // Pulse - Rebrand
+                 .variable(LineReader.HISTORY_FILE, java.nio.file.Paths.get(".console_history"))
+                 .completer(new ConsoleCommandCompleter(this.server))
+                 .option(LineReader.Option.COMPLETE_IN_WORD, true);

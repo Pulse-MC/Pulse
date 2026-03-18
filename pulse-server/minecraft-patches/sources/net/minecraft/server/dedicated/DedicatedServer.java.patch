@@ -8,7 +8,7 @@
  
  public class DedicatedServer extends MinecraftServer implements ServerInterface {
      static final Logger LOGGER = LogUtils.getLogger();
-@@ -358,6 +_,13 @@
+@@ -358,6 +_,15 @@
              }
          }
          // Purpur end - UPnP Port Forwarding
@@ -18,6 +18,8 @@
 +        dev.pulsemc.pulse.metrics.Metrics.start();
 +        dev.pulsemc.pulse.api.network.PulseEngine.provider = (player) -> new dev.pulsemc.pulse.network.impl.PulsePlayerImpl(player);
 +        dev.pulsemc.pulse.metrics.extensions.MetricsBar.start();
++        String existingSparkConfigs = System.getProperty("spark.serverconfigs.extra");
++        System.setProperty("spark.serverconfigs.extra", existingSparkConfigs == null ? "pulse.yml" : existingSparkConfigs + ",pulse.yml");
 +        // Pulse end - Init Config and Commands
  
          // CraftBukkit start

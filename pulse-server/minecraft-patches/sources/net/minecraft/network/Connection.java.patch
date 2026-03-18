@@ -1,0 +1,33 @@
+--- a/net/minecraft/network/Connection.java
++++ b/net/minecraft/network/Connection.java
+@@ -54,6 +_,7 @@
+ import org.slf4j.Logger;
+ import org.slf4j.Marker;
+ import org.slf4j.MarkerFactory;
++// PULSE_MODIFIED
+ 
+ public class Connection extends SimpleChannelInboundHandler<Packet<?>> {
+     private static final float AVERAGE_PACKETS_SMOOTHING = 0.75F;
+@@ -212,6 +_,10 @@
+ 
+     @Override
+     protected void channelRead0(ChannelHandlerContext ctx, Packet<?> packet) {
++        // Pulse start - Intercept Incoming Packets
++        packet = dev.pulsemc.pulse.network.impl.PulsePacketInterceptor.onPacketReceive(this, packet);
++        if (packet == null) return;
++        // Pulse end - Intercept Incoming Packets
+         if (this.channel.isOpen()) {
+             PacketListener packetListener = this.packetListener;
+             if (packetListener == null) {
+@@ -399,6 +_,11 @@
+     }
+ 
+     public void send(Packet<?> packet, @Nullable ChannelFutureListener sendListener, boolean flush) {
++        // Pulse start - Intercept Pre-Login Outgoing Packets
++        packet = dev.pulsemc.pulse.network.impl.PulsePacketInterceptor.onPacketSendPreLogin(this, packet);
++        if (packet == null) return;
++        // Pulse end - Intercept Pre-Login Outgoing Packets
++
+         // Paper start - Optimize network: Handle oversized packets better
+         final boolean connected = this.isConnected();
+         if (!connected && !this.preparing) {

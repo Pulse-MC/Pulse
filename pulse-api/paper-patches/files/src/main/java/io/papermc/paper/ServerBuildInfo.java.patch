@@ -1,0 +1,24 @@
+--- a/src/main/java/io/papermc/paper/ServerBuildInfo.java
++++ b/src/main/java/io/papermc/paper/ServerBuildInfo.java
+@@ -7,6 +_,7 @@
+ import net.kyori.adventure.util.Services;
+ import org.jetbrains.annotations.ApiStatus;
+ import org.jspecify.annotations.NullMarked;
++// PULSE_MODIFIED
+ 
+ /**
+  * Information about the current server build.
+@@ -25,6 +_,13 @@
+      */
+     Key BRAND_PURPUR_ID = Key.key("purpurmc", "purpur");
+     // Purpur end
++
++    // Pulse start
++    /**
++     * The brand id for Pulse.
++     */
++    Key BRAND_PULSE_ID = Key.key("pulsemc", "pulse");
++    // Pulse end
+     /**
+      * Gets the {@code ServerBuildInfo}.
+      *
