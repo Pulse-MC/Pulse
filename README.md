@@ -28,6 +28,10 @@ Pulse is a drop-in replacement for Purpur. Download the latest JAR from our webs
 
 ---
 
+## bStats
+
+<img src="https://api.pulsemc.dev/bstats/28846/__allcharts.svg?range=7d&gridColor=%23252732&scale=3" alt="bStats Chart" width="100%">
+
 ## Plugin Developers
 
 Pulse provides a specialized API for advanced networking control and virtual entity/block management.
