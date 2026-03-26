@@ -21,9 +21,9 @@
              return false;
          }
 +        // Pulse start - connect Virtual Entities
-+        if (this.pulseVirtualViewers != null) {
++        if (this.pulseIsVirtual()) { // Проверяем, что это ИМЕННО фантом!
 +            if (target != null && !this.pulseVirtualViewers.contains(target.getUUID())) {
-+                return false;
++                return false; // Фантом не может агриться на того, кто его не видит
 +            }
 +        }
 +        // Pulse end - connect Virtual Entities
